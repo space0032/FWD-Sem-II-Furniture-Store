@@ -55,7 +55,7 @@ function updateCartDisplay() {
   }
 
   // Update total and item count
-  cartTotal.textContent = "Total: $" + total.toFixed(2);
+  cartTotal.textContent = "Total: ₹" + total.toFixed(2);
   cartCount.textContent = totalItems;
 }
 
