@@ -1,11 +1,11 @@
 // Cart array to store items
-var cart = [];
+let cart = [];
 
 // Add item to cart
 function addToCart(name, price) {
   // Check if item already exists in cart
-  var found = false;
-  for (var i = 0; i < cart.length; i++) {
+  let found = false;
+  for (let i = 0; i < cart.length; i++) {
     if (cart[i].name === name) {
       cart[i].quantity = cart[i].quantity + 1;
       found = true;
@@ -25,7 +25,7 @@ function addToCart(name, price) {
 
 // Show the cart section
 function showCartSection() {
-  var cartSection = document.getElementById("cart-section");
+  const cartSection = document.getElementById("cart-section");
   cartSection.classList.remove("hidden");
   // Scroll to cart
   cartSection.scrollIntoView({ behavior: "smooth" });
@@ -33,21 +33,21 @@ function showCartSection() {
 
 // Update the cart display on screen
 function updateCartDisplay() {
-  var cartList = document.getElementById("cart-items");
-  var cartTotal = document.getElementById("cart-total");
-  var cartCount = document.getElementById("cart-count");
+  const cartList = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const cartCount = document.getElementById("cart-count");
 
   // Clear current list
   cartList.innerHTML = "";
 
-  var total = 0;
-  var totalItems = 0;
+  let total = 0;
+  let totalItems = 0;
 
   // Loop through cart and display each item
-  for (var i = 0; i < cart.length; i++) {
-    var item = cart[i];
-    var listItem = document.createElement("li");
-    var itemTotal = item.price * item.quantity;
+  for (let i = 0; i < cart.length; i++) {
+    const item = cart[i];
+    const listItem = document.createElement("li");
+    const itemTotal = item.price * item.quantity;
     listItem.innerHTML = item.name + " x" + item.quantity + " <span>$" + itemTotal.toFixed(2) + "</span>";
     cartList.appendChild(listItem);
     total = total + itemTotal;
@@ -81,9 +81,9 @@ function submitForm(event) {
   // Prevent page from reloading
   event.preventDefault();
 
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var message = document.getElementById("message").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
   // Simple check that fields are not empty
   if (name !== "" && email !== "" && message !== "") {
@@ -99,7 +99,7 @@ function submitForm(event) {
 
 // Show/hide cart when cart button is clicked
 document.getElementById("cart-btn").addEventListener("click", function () {
-  var cartSection = document.getElementById("cart-section");
+  const cartSection = document.getElementById("cart-section");
 
   if (cart.length === 0) {
     alert("Your cart is empty! Add some products first.");
